@@ -36,38 +36,41 @@ RUN rm pandoc-2.1-1-amd64.deb
 RUN conda update -c r r-base
 
 RUN conda install \
-	gcc_linux-64 \
-	gfortran_linux-64 \
-	r-essentials \
-	r-htmlwidgets \
-	r-gridExtra \
-	r-e1071 \
-	r-rgl \
-	r-xlsxjars \
-	r-xlsx \
-	r-rJava \
-	r-aer  \
-	r-png \
-	r-devtools \
-	r-digest \
-	r-evaluate \ 
-	r-memoise  \
-	r-withr  \
-	r-irdisplay \
-	r-r6  \
-	r-irkernel \
-	r-jsonlite\
-	r-lubridate\
-	r-magrittr\
-	r-pbdzmq \
-	r-rcpp \
-	r-repr \
-	r-stringi\
-	r-stringr  \
-	r-processx  
+        gcc_linux-64 \
+        gfortran_linux-64 \
+        r-essentials \
+        r-htmlwidgets \
+        r-gridExtra \
+        r-e1071 \
+        r-rgl \
+        r-xlsxjars \
+        r-xlsx \
+        r-rJava \
+        r-aer  \
+        r-png \
+        r-devtools \
+        r-digest \
+        r-evaluate \
+        r-memoise  \
+        r-withr  \
+        r-irdisplay \
+        r-r6  \
+        r-irkernel \
+        r-jsonlite\
+        r-lubridate\
+        r-magrittr\
+        r-pbdzmq \
+        r-rcpp \
+        r-repr \
+        r-stringi\
+        r-stringr\
+        r-processx\
+    r-tidyverse\
+    r-readr
+
 
 RUN conda install \
-	ipython \
+        ipython \
     numpy \
     pandas \
     plotnine \
@@ -76,9 +79,8 @@ RUN conda install \
     phantomjs  \
     statsmodels \
     statsmodels \
-    python-utils 
+    python-utils
 
-RUN pip install scikit-neuralnetwork
 
 RUN conda install -c https://conda.anaconda.org/amueller wordcloud
 
@@ -90,6 +92,7 @@ RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mclust_
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/pracma_2.1.1.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/ggdendro_0.1-20.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/GGally_1.3.2.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/multiwayvcov_1.2.3.tar.gz',repos=NULL)"
 
 
 #
@@ -99,11 +102,30 @@ RUN conda install -c conda-forge jupyter_contrib_nbextensions
 RUN jupyter nbextension install --py widgetsnbextension --sys-prefix
 RUN jupyter nbextension enable  --py widgetsnbextension --sys-prefix
 
-RUN conda install \
-    r-tidyverse \
-    r-readr
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/openxlsx_4.0.17.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/rio_0.5.5.tar.gz',repos=NULL)"
+
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/survey_3.33.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mirt_1.26.3.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/lavaan_0.5-23.1097.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/lavaan.survey_1.1.3.1.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/coda_0.19-1.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mvtnorm_1.0-7.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/sfsmisc_1.1-1.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/polycor_0.7-9.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/CDM_6.0-101.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/TAM_2.8-21.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mitools_2.3.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mice_2.46.0.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mvtnorm_1.0-7.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/sirt_2.4-20.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/miceadds_2.9-15.tar.gz',repos=NULL)"
+
+
+
 #
 # This should allow users to turn off extension if they do not want them.
 #
 USER jovyan
+RUN pip install scikit-neuralnetwork
 RUN jupyter nbextensions_configurator enable
