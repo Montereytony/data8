@@ -89,8 +89,11 @@ RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/DRR_0.0
 RUN Rscript -e "install.packages('https://ftp.osuosl.org/pub/cran/src/contrib/wordcloud2_0.2.1.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/webshot_0.5.0.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mclust_5.4.tar.gz',repos=NULL)"
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/pracma_2.1.1.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/pracma_2.1.4.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/ggdendro_0.1-20.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/reshape_0.8.7.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/prettyunits_1.0.2.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/progress_1.1.2.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/GGally_1.3.2.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/multiwayvcov_1.2.3.tar.gz',repos=NULL)"
 
@@ -106,9 +109,6 @@ RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/openxls
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/rio_0.5.5.tar.gz',repos=NULL)"
 
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/survey_3.33.tar.gz',repo=NULL)"
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mirt_1.26.3.tar.gz',repo=NULL)"
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/lavaan_0.5-23.1097.tar.gz',repo=NULL)"
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/lavaan.survey_1.1.3.1.tar.gz',repo=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/coda_0.19-1.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mvtnorm_1.0-7.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/sfsmisc_1.1-1.tar.gz',repos=NULL)"
@@ -118,8 +118,6 @@ RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/TAM_2.8
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mitools_2.3.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mice_2.46.0.tar.gz',repos=NULL)"
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mvtnorm_1.0-7.tar.gz',repos=NULL)"
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/sirt_2.4-20.tar.gz',repos=NULL)"
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/miceadds_2.9-15.tar.gz',repos=NULL)"
 
 
 
@@ -129,3 +127,17 @@ RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/miceadd
 USER jovyan
 RUN pip install scikit-neuralnetwork
 RUN jupyter nbextensions_configurator enable
+
+
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/GPArotation_2014.11-1.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/permute_0.9-4.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/vegan_2.4-6.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/pbivnorm_0.6.0.tar.gz',repo=NULL)"
+#
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/numDeriv_2016.8-1.tar.gz',repo=NULL)"
+#RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/mirt_1.26.3.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/mirt/mirt_1.20.1.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/lavaan_0.5-23.1097.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/lavaan.survey_1.1.3.1.tar.gz',repo=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/sirt_2.4-20.tar.gz',repos=NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/miceadds_2.9-15.tar.gz',repos=NULL)"
